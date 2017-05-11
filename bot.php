@@ -21,12 +21,9 @@ if (!is_null($events['events'])) {
 				'type' => 'text',
 				'text' => $text
 			];
-			$messages2 = [
-				'type' => 'text',
-				'text' => $text
-				];
+			
 			if($text=='สวัสดี'){
-				$messages2 = [
+				$messages = [
 				'type' => 'text',
 				'text' => 'โตๆกันแล้ว ไม่ต้องสวัสดีแล้วล่ะ'
 				];
@@ -37,7 +34,7 @@ if (!is_null($events['events'])) {
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$messages,$messages2],
+				'messages' => [$messages],
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
